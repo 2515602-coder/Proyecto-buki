@@ -6,3 +6,7 @@ import pymysql
 import os
 
 import pymysql
+
+@app.route("/main.html")
+    def main(): 
+    return 0
