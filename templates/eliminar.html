@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block Titulo %}
+    Formulario
+{% endblock %}
+
+{% block heather %}
+    Fromulario de Registro
+{% endblock %}
+{% block contenido %}
+    <div>
+    
+    <h2>⚠️ Confirmar eliminación</h2>
+
+    <p>
+        ¿Estás seguro de que quieres eliminar a:
+        <strong>{{ usuario.name_user }}</strong>?
+    </p>
+
+    <form method="POST" action="{{ url_for('eliminar', id_user=id_user) }}">
+    <button type="submit">
+        Sí, eliminar
+    </button>
+
+    <a href="{{ url_for('tabla') }}">
+        Cancelar
+    </a>
+</form>
+    </div>
+{% endblock %}            

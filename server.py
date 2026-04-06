@@ -48,7 +48,6 @@ def updatesql(tabla, id_column, id_valor, data, allowed_columns = None):
     conn.close()
     return 
 
-
 def validar_longitud(texto, min_len, max_len):
     return min_len <= len(texto) <= max_len
 

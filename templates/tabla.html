@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block Titulo %}
+    Tabla
+{% endblock %}
+
+{% block heather %}
+    Tabla
+{% endblock %}
+{% block contenido %}
+    <div>
+        <h4>Tabla de usuarios</h4>
+        <form method="GET" action="{{ url_for('tabla') }}">
+            <input type="text" name="busqueda" placeholder="Buscar por ID o Nombre">
+            <button type="submit">Buscar</button>
+        </form>
+        <div>
+            {% if usuarios %}
+            <table border="0" class="mitabla">
+                <thead>
+                <tr>
+                    <th colspan="3">
+                        Usuarios en la DB
+
+                    </th>
+
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido P</th>
+                    <th>Apellido M</th>
+                    <th>Edad</th>
+                    <th>Email</th>
+                    <th>Contraseña</th>
+                </tr>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.name_user }}</td>
+                    <td>{{ usuario.apell_user }}</td>
+                    <td>{{ usuario.apellm_user }}</td>
+                    <td>{{ usuario.edad_user }}</td>
+                    <td>{{ usuario.mail_user }}</td>
+                    <td>********</td>
+                    <td>
+                        <a href="{{ url_for('editar', id_user=usuario.id_user) }}">
+                            <button>Editar</button>
+                        </a>
+                    </td>
+                    <td><a href="{{ url_for('eliminar', id_user=usuario.id_user) }}">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            {% else %}
+            <p>No hay resultados.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

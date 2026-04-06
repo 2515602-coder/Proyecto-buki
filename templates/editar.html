@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block Titulo %}
+    Formulario
+{% endblock %}
+
+{% block heather %}
+    Fromulario de Registro
+{% endblock %}
+{% block contenido %}
+    <div>
+    <h2>EDITAR</h2>
+    <form method="POST" action="{{ url_for('editar', id_user=id_user) }}">
+        <label>Nombre:</label>
+        <input type="text" name="eNombre" value="{{ usuario.name_user }}">
+        <br>
+        <label>Apellido Paterno:</label>
+        <input type="text" name="eApellp" value="{{ usuario.apell_user }}">
+        <br>
+        <label>Apellido Materno:</label>
+        <input type="text" name="eApellm" value="{{ usuario.apellm_user }}">
+        <br>
+        <label>Email:</label>
+        <input type="text" name="eEmail" value="{{ usuario.mail_user }}">
+        <br>
+        <label>Contraseña</label>
+        <input type="password" name="eContrasena" value="{{ usuario.contra_user }}"/>
+        <br>
+        <label>Edad</label>
+        <input type="text" name="eEdad" value="{{ usuario.edad_user }}">
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    </div>
+{% endblock %}            
