@@ -1,4 +1,108 @@
-.body[
-    background: white;
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    width: 100%;
+    background-color: bisque;
+    margin: 30px;
+    padding: 10px;
+    border: 4px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+article{
+    
+    width: 100%;
+    
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: antiquewhite;
+}
 
-]
+/*-----MENU-------*/
+
+nav{
+    width: 100%;
+    background-color: rgb(190, 156, 117);
+    border: 2px solid rgb(190, 156, 117);
+    border-radius: 10px;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+nav ul li {
+    list-style: none;
+    float: left ;
+    display: flex;
+    align-items: center;
+} 
+
+nav ul li a {
+    background-color: rgb(197, 114, 103);
+    text-decoration: none;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    color: black;
+}
+nav ul li a:hover {
+    background-color: rgb(111, 177, 144);
+    color: white;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+/*-------TABLA-------*/
+.mitabla{
+    background-color: azure;
+    border-radius: 5mm;
+    border: 2px solid black;
+}
+.mitabla td{
+    padding: 5px;
+}
+.mitabla a{
+    background-color: rgb(221, 164, 221);
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+    border-radius: 10px;
+
+}
+.mitabla a:hover{
+    background-color: blueviolet;
+    color: white;
+}
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  background: #333;
+  color: #fff;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  opacity: 0;
+  animation: slideIn 0.5s forwards, fadeOut 0.5s 3s forwards;
+}
+
+.toast.success { background: #28a745; }
+.toast.danger { background: #dc3545; }
+.toast.warning { background: #ffc107; color: #000; }
+
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(100%); }
+}
