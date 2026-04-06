@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Test de conexion local con github</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Prueba|{% block titulo %}
+            
+        {% endblock %}</title>
+        
+    </head>
+        
+    <body>
+        <header>
+            <h2>{% block header %}
+                
+            {% endblock %}</h2>
+        </header>   
+                                    <div id="toast-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="toast {{ category }}">{{ message }}</div>
+            {% endfor %}
+            {% endwith %}
+            </div>
+            
+        <nav>
+             <ul>
+                <li>
+                    <a href="/">inicio</a>
+                </li>
+                <li>
+                    <a href="/formulario">Formulario</a>
+                </li>
+                <li>
+                    <a href="/tabla">Tabla</a>
+                </li>
+             </ul>
+        </nav>
+        <main>
+            {% block contenido %}
+                
+            {% endblock %}
+
+        </main>
+        <footer>
+            pie de pagina principal
+        </footer>
+        <script>
+            document.querySelectorAll('.toast').forEach(toastEl => {
+                new bootstrap.Toast(toastEl).show();
+            });
+        </script>
+    </body>
 </html>
